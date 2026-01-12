@@ -48,29 +48,24 @@ class _ProfileProductState extends State<ProfileProduct> {
                   Stack(
                     children: [
                       // Main Image
-                      Positioned(
-                        top: 0,
-                        left: 150,
-                        right: 150,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40),
-                          ),
-                          child: 
-                          Image.network(
-                            widget.product.image,
-                            height: screenHeight * 0.4,
-                            width: 250,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                height: screenHeight * 0.5,
-                                color: Colors.grey[300],
-                                child: Icon(Icons.image, size: 100, color: Colors.grey[500]),
-                              );
-                            },
-                          ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(40),
+                          bottomRight: Radius.circular(40),
+                        ),
+                        child: 
+                        Image.network(
+                          widget.product.image,
+                          height: screenHeight * 0.4,
+                          width: 250,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              height: screenHeight * 0.5,
+                              color: Colors.grey[300],
+                              child: Icon(Icons.image, size: 100, color: Colors.grey[500]),
+                            );
+                          },
                         ),
                       ),
 
@@ -129,7 +124,7 @@ class _ProfileProductState extends State<ProfileProduct> {
                             child: Row(
                               children: [
                                 Text(
-                                  '\$299',
+                                  '\$${widget.product.price.toStringAsFixed(0)}',
                                   style: TextStyle(
                                     fontSize: 32,
                                     fontWeight: FontWeight.bold,
