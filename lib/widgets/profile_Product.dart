@@ -139,7 +139,7 @@ class _ProfileProductState extends State<ProfileProduct> {
                                 ),
                                 SizedBox(width: 8),
                                 Text(
-                                  '.99',
+                                  'USD',
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
