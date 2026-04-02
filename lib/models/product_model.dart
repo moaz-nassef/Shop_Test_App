@@ -16,30 +16,49 @@ class Product_model {
     required this.rating,
   });
 
-
   factory Product_model.fromJson(Map<String, dynamic> jsonData) {
+    final dynamic ratingField = jsonData['rating'];
+    final double ratingValue;
+    final int ratingCount;
+
+    if (ratingField is num) {
+      ratingValue = ratingField.toDouble();
+      ratingCount =
+          jsonData['stock'] != null ? (jsonData['stock'] as num).toInt() : 0;
+    } else if (ratingField is Map<String, dynamic>) {
+      ratingValue = (ratingField['rate'] as num?)?.toDouble() ?? 0.0;
+      ratingCount =
+          (ratingField['count'] as num?)?.toInt() ??
+          (jsonData['stock'] != null ? (jsonData['stock'] as num).toInt() : 0);
+    } else {
+      ratingValue = 0.0;
+      ratingCount =
+          jsonData['stock'] != null ? (jsonData['stock'] as num).toInt() : 0;
+    }
+
+    final imageUrl =
+        jsonData['thumbnail'] ??
+        (jsonData['images'] is List && jsonData['images'].isNotEmpty
+            ? jsonData['images'][0]
+            : jsonData['image']);
+
     return Product_model(
       id: jsonData['id'].toString(),
-      title: jsonData['title'],
-      description: jsonData['description'],
-      category: jsonData['category'],
-      image: jsonData['image'],
-      price: (jsonData['price'] as num).toDouble(),
-      rating: Rating_model.fromJson(jsonData['rating']),
+      title: jsonData['title'] ?? '',
+      description: jsonData['description'] ?? '',
+      category: jsonData['category'] ?? '',
+      image: imageUrl?.toString() ?? '',
+      price: (jsonData['price'] as num?)?.toDouble() ?? 0.0,
+      rating: Rating_model(rate: ratingValue, count: ratingCount),
     );
   }
 }
-
-
 
 class Rating_model {
   final double rate;
   final int count;
 
-  Rating_model({
-    required this.rate,
-    required this.count,
-  });
+  Rating_model({required this.rate, required this.count});
 
   factory Rating_model.fromJson(Map<String, dynamic> jsonData) {
     return Rating_model(
@@ -48,7 +67,3 @@ class Rating_model {
     );
   }
 }
-
-
-
-
