@@ -30,6 +30,8 @@ environment:
 dependencies:
   http: ^1.6.0
   modal_progress_hud_nsn: ^0.3.0
+  flutter_riverpod: ^2.6.1
+  google_fonts: ^6.1.0
   flutter:
     sdk: flutter
 

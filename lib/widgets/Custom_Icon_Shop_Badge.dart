@@ -1,8 +1,15 @@
+// 📁 lib/widgets/custom_icon_shop_badge.dart
+// 📌 Shopping cart badge icon with item count indicator
+// 🔗 Dependencies: flutter/material.dart
+
 import 'package:flutter/material.dart';
 
-
 class CustomIconShopBadge extends StatelessWidget {
-  const CustomIconShopBadge({super.key, required this.itemCount, required this.onPressed});
+  const CustomIconShopBadge({
+    super.key,
+    required this.itemCount,
+    required this.onPressed,
+  });
   final int itemCount;
   final VoidCallback onPressed;
 
@@ -14,10 +21,7 @@ class CustomIconShopBadge extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: Colors.white.withOpacity(0.4),
-              width: 1,
-            ),
+            border: Border.all(color: Colors.white.withOpacity(0.4), width: 1),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),
@@ -44,8 +48,11 @@ class CustomIconShopBadge extends StatelessWidget {
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color.fromARGB(255, 255, 192, 192), Color.fromARGB(255, 105, 255, 85), Color.fromARGB(255, 255, 189, 189)],
-
+                  colors: [
+                    Color.fromARGB(255, 255, 192, 192),
+                    Color.fromARGB(255, 105, 255, 85),
+                    Color.fromARGB(255, 255, 189, 189),
+                  ],
                 ),
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 1),

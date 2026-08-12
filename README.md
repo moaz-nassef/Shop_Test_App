@@ -19,6 +19,7 @@
 
 - 🏬 **Product catalog** with a smooth grid & search
 - 🧺 **Shopping cart** with real‑time badge updates
+- 🧭 **Four-tab shell** — Home, Search, Cart and Profile with animated navigation
 - 🖼️ **Product details** with a gorgeous **glass‑morphism** design
 - ✏️ **Add / update products** from within the app
 - 🔖 **Category filters** + color options & skeletons
@@ -34,9 +35,12 @@ Wrapped in a **clean‑architecture, feature‑first** structure with a premium 
 | 🏬 **Catalog** | Grid of featured products with ratings & pricing |
 | 🔎 **Search** | Instant product search across the store |
 | 🧺 **Cart** | Add / remove items with live badge count updates |
+| 🧭 **Navigation Shell** | Animated PageView navigation for Home, Search, Cart and Profile |
 | 🖼️ **Product Details** | Full details with gallery, colors & action bar |
 | ✏️ **Add / Update** | Create new products and edit existing ones in‑app |
 | 🔖 **Category Filters** | Filter chips + all‑categories browsing |
+| 🔄 **Pull to Refresh** | Reload the catalog with native refresh feedback |
+| 🧩 **Friendly States** | Dedicated loading skeletons, empty states and error UI |
 | 🎨 **Glass‑morphism UI** | Premium frosted‑glass cards & surfaces |
 | 🌗 **Light & Dark Themes** | System‑aware theming |
 | 💀 **Skeleton Loaders** | Beautiful loading placeholders |
@@ -75,7 +79,7 @@ lib/
 ├── models/                      # Product model
 ├── screens/                     # Home, Search, Cart, Profile, Detail, Splash
 ├── servis/                      # API services (get/add/update products & categories)
-└── widgets/                     # Cards, inputs, nav bar, skeletons & more
+└── widgets/                     # Cards, filters, inputs, nav, skeletons, empty/error states
 ```
 
 ---
@@ -97,7 +101,7 @@ cd Shop_Test_App
 flutter pub get
 
 # 3️⃣ Configure your API
-#  - copy `.env.example` to your environment config
+#  - use `.env.example` as the reference for your product API settings
 #  - point the service files to your product endpoint
 
 # 4️⃣ Run the app
@@ -112,6 +116,9 @@ flutter run
 - [x] Cart with live badge
 - [x] Product add/update
 - [x] Category filters & glass UI
+- [x] Dedicated search, cart, profile and product-detail screens
+- [x] Four-tab animated navigation shell + pull-to-refresh
+- [x] Loading, empty and error feedback states
 - [ ] 🛒 Checkout flow
 - [ ] ❤️ Favorites & wishlist
 - [ ] 🧾 Order history
